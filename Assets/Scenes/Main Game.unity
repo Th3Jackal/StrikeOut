@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransitionEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 2877195740645852645, guid: 62a2da991af71364cafa1acf5fc9ae05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5735010469472024215, guid: 62a2da991af71364cafa1acf5fc9ae05, type: 3}
       propertyPath: m_Pivot.x
       value: 0
