@@ -16,17 +16,19 @@ public class PlayerInput : MonoBehaviour
     {
         Vector3 vel = Vector3.zero;
 
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.W))
         {
-            vel.x = 0;
+            vel.y = 1;
         }
-
-        else if (Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.S))
+        {
+            vel.y = -1;
+        }
+        if(Input.GetKey(KeyCode.A))
         {
             vel.x = -1;
         }
-
-        else if (Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.D))
         {
             vel.x = 1;
         }
@@ -37,16 +39,23 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        /*
+        /*Vector3 vel = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            vel.x = -1;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            vel.x = 1;
+        }
+
         if(Input.GetKeyDown(KeyCode.W))
         {
             vel.y = 1;
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            vel.y = -1;
-        }
-        */
+        
+        movement.MoveRig(vel);*/
     }
 }
