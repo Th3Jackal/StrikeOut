@@ -18,11 +18,6 @@ public class Hit : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            HitActive();
-        }
-
         if(hitting)
         {
             timer += Time.deltaTime;
@@ -36,7 +31,7 @@ public class Hit : MonoBehaviour
         }
     }
 
-    private void HitActive()
+    public void HitActive()
     {
         hitting = true;
         hitArea.SetActive(hitting);

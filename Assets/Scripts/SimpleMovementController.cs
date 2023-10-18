@@ -8,6 +8,8 @@ public class SimpleMovementController : MonoBehaviour
     [SerializeField] Transform body;
     [SerializeField] AnimationStateChanger animationStateChanger;
     [SerializeField] BoxCollider2D hitBox;
+    [SerializeField] Player player;
+    [SerializeField] Hit hit;
 
     float rightHitBox = -5.168638f;
     float leftHitBox = (-5.168638f - 0.9324365f);
@@ -31,6 +33,14 @@ public class SimpleMovementController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W))
         {
             movement.Jump();
+        }
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            player.ActivateAbility();
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            hit.HitActive();
         }
     }
 

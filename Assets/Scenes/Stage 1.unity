@@ -156,6 +156,8 @@ MonoBehaviour:
   body: {fileID: 439106863}
   animationStateChanger: {fileID: 439106866}
   hitBox: {fileID: 796436355}
+  player: {fileID: 347110013}
+  hit: {fileID: 347110014}
 --- !u!4 &195782429
 Transform:
   m_ObjectHideFlags: 0
@@ -1053,8 +1055,8 @@ GameObject:
   - component: {fileID: 946760549}
   - component: {fileID: 946760548}
   - component: {fileID: 946760547}
-  - component: {fileID: 946760546}
   - component: {fileID: 946760545}
+  - component: {fileID: 946760551}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: LR
@@ -1075,19 +1077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationStateChanger: {fileID: 1449469371}
---- !u!114 &946760546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946760544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1085c5e475ebc3149a53a445e4b35af8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 887191270}
 --- !u!114 &946760547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1195,6 +1184,19 @@ Transform:
   - {fileID: 749642949}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946760551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946760544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c9426bff982b744396a9116cdbead76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 887191270}
 --- !u!1 &1202360460
 GameObject:
   m_ObjectHideFlags: 0
