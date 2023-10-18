@@ -212,6 +212,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animationStateChanger: {fileID: 439106866}
+  hit: {fileID: 347110014}
+  body: {fileID: 0}
+  hitBox: {fileID: 0}
 --- !u!61 &347110010
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1057,6 +1060,7 @@ GameObject:
   - component: {fileID: 946760547}
   - component: {fileID: 946760545}
   - component: {fileID: 946760551}
+  - component: {fileID: 946760552}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: LR
@@ -1095,6 +1099,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animationStateChanger: {fileID: 1449469371}
+  hit: {fileID: 946760545}
+  body: {fileID: 1449469374}
+  hitBox: {fileID: 749642951}
 --- !u!61 &946760548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1197,6 +1204,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 887191270}
+--- !u!114 &946760552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946760544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02eb274d7f4acf4a91990621dd8e4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 55
+  ballTransform: {fileID: 887191271}
 --- !u!1 &1202360460
 GameObject:
   m_ObjectHideFlags: 0

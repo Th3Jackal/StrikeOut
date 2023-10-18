@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SimpleMovementController : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class SimpleMovementController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             hit.HitActive();
+        }
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            SceneManager.LoadScene("Main Menu");
         }
     }
 

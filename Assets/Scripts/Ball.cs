@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float bspeed = 1;
-    public Vector2 bdirection;
+    public Vector2 bdirection = Vector2.zero.normalized;
     public Rigidbody2D rigb;
     public SpriteRenderer ballsprite;
     int directionchance = 0;

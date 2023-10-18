@@ -8,7 +8,13 @@ public class DiscreteMovement : MonoBehaviour
     [SerializeField] float jump = 5;
     [SerializeField] LayerMask groundMask;
     [SerializeField] AnimationStateChanger animationStateChanger;
+    [SerializeField] Hit hit;
+    [SerializeField] Transform body;
+    [SerializeField] BoxCollider2D hitBox;
     Rigidbody2D rig;
+
+    float rightHitBox = -5.168638f;
+    float leftHitBox = (-5.168638f - 0.9324365f);
     
 
     void Awake()
@@ -19,6 +25,25 @@ public class DiscreteMovement : MonoBehaviour
     void Update()
     {
 
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 vel = Vector3.zero;
+
+        if(this.gameObject.name == "Enemy")
+        {
+            if(vel.x > 0)
+            {
+                body.localScale = new Vector3(3,3,3);
+                hitBox.offset = new Vector2(rightHitBox, -2.246499f);
+            }
+            else if(vel.x < 0)
+            {
+                body.localScale = new Vector3(-3,3,3);
+                hitBox.offset = new Vector2(leftHitBox, -2.246499f);
+            }
+        }
     }
 
     public void MoveRig(Vector3 vel)
@@ -34,6 +59,20 @@ public class DiscreteMovement : MonoBehaviour
         {
             animationStateChanger.ChangeAnimationState("Idle");
         }
+    }
+
+    public void MoveToward(Vector3 targetPosition){
+        Vector3 direction = targetPosition - transform.position;
+        direction = Vector3.Normalize(direction);
+        MoveRig(direction);
+        if(direction.x < 1)
+        {
+            hit.HitActive();
+        }
+    }
+
+    public void Stop(){
+        MoveRig(Vector3.zero);
     }
 
     /*void OnDrawGizmos(){
