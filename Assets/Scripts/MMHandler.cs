@@ -7,7 +7,17 @@ public class MMHandler : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("Main Game");
+        SceneManager.LoadScene("Stage 1");
+    }
+
+    public void SettingsMenu()
+    {
+        SceneManager.LoadScene("Settings");
+    }
+
+    public void BackMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()
