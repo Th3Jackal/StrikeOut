@@ -12,8 +12,8 @@ public class SimpleMovementController : MonoBehaviour
     [SerializeField] Player player;
     [SerializeField] Hit hit;
 
-    float rightHitBox = -5.168638f;
-    float leftHitBox = (-5.168638f - 0.9324365f);
+    float rightHitBox = .23f;
+    float leftHitBox = (.23f * -1);
     
     /*Rigidbody2D rig;
     public float jump;*/
@@ -52,10 +52,10 @@ public class SimpleMovementController : MonoBehaviour
     void FixedUpdate(){
         Vector3 vel = Vector3.zero;
 
-        if(Input.GetKey(KeyCode.S))
+        /*if(Input.GetKey(KeyCode.S))
         {
             vel.y = -1;
-        }
+        }*/
         if(Input.GetKey(KeyCode.A))
         {
             vel.x = -1;

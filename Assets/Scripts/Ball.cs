@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] AudioClip clip;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject enemy;
     public float bspeed = 1;
     public Vector2 bdirection = Vector2.zero.normalized;
     public Rigidbody2D rigb;
@@ -11,12 +16,17 @@ public class Ball : MonoBehaviour
     int directionchance = 0;
     private Color playerColor = new Color(0, 0, 1, 1);
     private Color enemyColor = new Color(1, 0, 0, 1);
-    private int start = 1;
+    public int start = 1;
 
     void Awake()
     {
         rigb = GetComponent<Rigidbody2D>();
         //bdirection = Vector2.one.normalized;
+    }
+
+    void Start()
+    {
+
     }
 
     void FixedUpdate()
@@ -30,6 +40,7 @@ public class Ball : MonoBehaviour
         {
             bdirection = Vector2.one.normalized;
             start = 0;
+            bspeed = 5;
         }
     }
 
@@ -52,23 +63,26 @@ public class Ball : MonoBehaviour
         
         else if(collision.gameObject.CompareTag("Hit"))
         {
-            Debug.Log("11");
             directionchance = Random.Range(0, 1);
-            Debug.Log("12");
             if(directionchance == 0)
             {
-                Debug.Log("13");
                 bspeed += 1;
-                Debug.Log("14");
                 bdirection.x = -bdirection.x;
             }
             else if(directionchance == 1)
             {
-                Debug.Log("15");
                 bspeed += 1;
-                Debug.Log("16");
+                bdirection.x = -bdirection.x;
                 bdirection.y = -bdirection.y;
             }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "HitArea" || collision.gameObject.name == "EnemyHitArea")
+        {
+            GetComponent<AudioSource>().PlayOneShot(clip);
         }
     }
 

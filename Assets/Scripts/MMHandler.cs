@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MMHandler : MonoBehaviour
 {
+    [SerializeField] GameObject settingsMenu;
+    
     public void PlayGame()
     {
         SceneManager.LoadScene("Stage 1");
@@ -12,12 +14,12 @@ public class MMHandler : MonoBehaviour
 
     public void SettingsMenu()
     {
-        SceneManager.LoadScene("Settings");
+        settingsMenu.SetActive(true);
     }
 
     public void BackMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        settingsMenu.SetActive(false);
     }
 
     public void QuitGame()

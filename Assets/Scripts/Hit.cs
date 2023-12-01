@@ -6,19 +6,22 @@ public class Hit : MonoBehaviour
 {
     [SerializeField] AnimationStateChanger animationStateChanger;
     private GameObject hitArea = default;
-    private bool hitting = false;
-    private float hitTime = 0.5f;
-    private float timer = 0f;
+    //private bool hitting = false;
+    [SerializeField] GameObject hitAreaBox;
+    //private float hitTime = 0.5f;
+    //private float timer = 0f;
     Rigidbody2D rig;
+    public int onCool;
 
     void Start()
     {
         hitArea = transform.GetChild(1).gameObject;
+        onCool = 0;
     }
 
     void Update()
     {
-        if(hitting)
+        /*if(hitting)
         {
             timer += Time.deltaTime;
 
@@ -28,12 +31,24 @@ public class Hit : MonoBehaviour
                 hitting = false;
                 hitArea.SetActive(hitting);
             }
-        }
+        }*/
     }
 
     public void HitActive()
     {
-        hitting = true;
-        hitArea.SetActive(hitting);
+        if(onCool == 0)
+        {
+            StartCoroutine(HitCoroutine());
+        }
+    }
+
+    IEnumerator HitCoroutine()
+    {
+        onCool = 1;
+        hitAreaBox.GetComponent<BoxCollider2D>().enabled = true;
+        yield return new WaitForSeconds(.75f);
+        hitAreaBox.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(.5f);
+        onCool = 0;
     }
 }
